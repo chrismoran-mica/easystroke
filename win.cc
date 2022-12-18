@@ -256,6 +256,10 @@ void Win::show() {
 	win->show();
 }
 
+void Win::maximize() {
+	win->maximize();
+}
+
 void Win::hide() {
 	win->hide();
 }
@@ -275,7 +279,7 @@ void Win::timeout() {
 }
 
 void Win::set_icon(RStroke stroke, bool invert) {
-	if (!icon)
+	if (!icon || icon->get_size() <= 0)
 		return;
 	icon->set(stroke->draw(icon->get_size(), 2.0, invert));
 	set_timeout(10000);
